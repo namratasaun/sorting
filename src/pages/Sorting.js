@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import Action from '../components/action';
+import css from './sorting.module.css';
 
 async function sleep(time) {
   await new Promise((next) => {
@@ -9,29 +10,51 @@ async function sleep(time) {
   });
 }
 
-function App() {
-  const [arr, setArr] = useState([5, 2, 4, 8, 1, 7, 9]);
+function Sorting() {
+  const [showAction, setShowAction] = useState(false);
+  const [picked, setPicked] = useState([]);
+  const [initialArr, setInitialArr] = useState([5, 1, 4, 2, 8]);
+
+  async function swap(currentArr, s, t) {
+    setShowAction(true);
+    await sleep(1000);
+    let temp = currentArr[s];
+    currentArr[s] = currentArr[t];
+    currentArr[t] = temp;
+    // setArr(currentArr);
+    setInitialArr([...currentArr]);
+    await sleep(1000);
+  }
+
+  // useEffect(() => {
+  //   console.log(initialArr);
+  // }, [initialArr]);
+
   useEffect(() => {
+    let arr = [...initialArr];
     (async function foo() {
-      // for (let i = 0; i < arr.length; i++) {
-      //   console.log(i);
-      //   setTimeout(() => {
-      //     console.log('bhidu', i);
-      //   }, i * 1000);
-      // }
       for (var i = 0; i < arr.length; i++) {
-        console.log('outer');
-        await sleep(2000);
+        for (var j = 0; j < arr.length - 1; j++) {
+          console.log('stop');
+          console.log(arr);
+          setPicked([j, j + 1]);
+          await sleep(1000);
+          if (arr[j] > arr[j + 1]) {
+            await swap(arr, j, j + 1);
+          }
+        }
       }
     })();
   }, []);
+
   return (
     <div>
-      {arr.map((val) => (
-        <div>{val}</div>
+      {showAction ? <Action text='Swap' close={() => setShowAction(false)} /> : null}
+      {initialArr.map((val, ind) => (
+        <div className={picked.includes(ind) ? css.picked : null}>{val}</div>
       ))}
     </div>
   );
 }
 
-export default App;
+export default Sorting;

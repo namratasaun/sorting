@@ -1,0 +1,34 @@
+.outer {
+  border: 4px solid orange;
+  text-align: center;
+}
+
+.time {
+  width: 100%;
+  display: flex;
+  font-size: 6rem;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.time p {
+  margin: 0 1.5rem 0 1.5rem;
+}
+
+.time p:first-child {
+  margin-left: 0;
+}
+.time p:last-child {
+  margin: 0;
+}
+
+.nanoSeconds {
+  font-size: 2rem;
+  width: 8%;
+  text-align: left;
+}
+
+.days {
+  font-size: 6rem;
+  margin: 0 0 2rem 0;
+}

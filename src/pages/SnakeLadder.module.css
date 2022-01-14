@@ -1,0 +1,15 @@
+.outer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.block {
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+}
+
+.player {
+  height: 8px;
+  width: 8px;
+}
