@@ -7,6 +7,7 @@ import SnakeLadder from './pages/SnakeLadder';
 function App() {
   return (
     <Fragment>
+      <p>hello</p>
       <Routes>
         <Route path='/stopwatch' element={<Stopwatch />} />
         <Route path='/sorting' element={<Sorting />} />
