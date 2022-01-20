@@ -8,6 +8,7 @@ function App() {
   return (
     <Fragment>
       <p>hello</p>
+      <p>hello2</p>
       <Routes>
         <Route path='/stopwatch' element={<Stopwatch />} />
         <Route path='/sorting' element={<Sorting />} />
