@@ -1,0 +1,12 @@
+.outer {
+  width: 100%;
+  background-color: aqua;
+  margin: 1rem 0;
+}
+.innerFill {
+  background-color: red;
+  height: 50px;
+  /* width: 0%; */
+  transition: width 0.05s;
+  transition-timing-function: linear;
+}
