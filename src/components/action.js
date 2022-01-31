@@ -1,8 +1,8 @@
-import { useState } from 'react/cjs/react.development';
+import { useEffect } from 'react';
 import css from './action.module.css';
 
 const Action = ({ text, close }) => {
-  useState(() => {
+  useEffect(() => {
     setTimeout(() => {
       close();
     }, 500);
