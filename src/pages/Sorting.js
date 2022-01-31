@@ -10,10 +10,12 @@ async function sleep(time) {
   });
 }
 
+const startingValues = [5, 1, 4, 2, 8];
+
 function Sorting() {
   const [showAction, setShowAction] = useState(false);
   const [picked, setPicked] = useState([]);
-  const [initialArr, setInitialArr] = useState([5, 1, 4, 2, 8]);
+  const [initialArr, setInitialArr] = useState([...startingValues]);
 
   async function swap(currentArr, s, t) {
     setShowAction(true);
@@ -31,7 +33,7 @@ function Sorting() {
   // }, [initialArr]);
 
   useEffect(() => {
-    let arr = [...initialArr];
+    let arr = [...startingValues];
     (async function foo() {
       for (var i = 0; i < arr.length; i++) {
         for (var j = 0; j < arr.length - 1; j++) {
