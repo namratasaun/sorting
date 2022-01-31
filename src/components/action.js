@@ -6,7 +6,7 @@ const Action = ({ text, close }) => {
     setTimeout(() => {
       close();
     }, 500);
-  }, []);
+  }, [close]);
 
   return (
     <div className={css.backdrop}>

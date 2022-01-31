@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Action from '../components/action';
 import css from './sorting.module.css';
 
@@ -16,6 +16,8 @@ function Sorting() {
   const [showAction, setShowAction] = useState(false);
   const [picked, setPicked] = useState([]);
   const [initialArr, setInitialArr] = useState([...startingValues]);
+
+  let closeAction = useCallback(() => setShowAction(false), []);
 
   async function swap(currentArr, s, t) {
     setShowAction(true);
@@ -51,7 +53,7 @@ function Sorting() {
 
   return (
     <div>
-      {showAction ? <Action text='Swap' close={() => setShowAction(false)} /> : null}
+      {showAction ? <Action text='Swap' close={closeAction} /> : null}
       {initialArr.map((val, ind) => (
         <div className={picked.includes(ind) ? css.picked : null}>{val}</div>
       ))}
