@@ -52,10 +52,10 @@ function Sorting() {
   }, []);
 
   return (
-    <div>
+    <div style={{ display: 'flex' }}>
       {showAction ? <Action text='Swap' close={closeAction} /> : null}
       {initialArr.map((val, ind) => (
-        <div className={picked.includes(ind) ? css.picked : null}>{val}</div>
+        <div className={`${css.all} ${picked.includes(ind) ? css.picked : ''}`}>{val}</div>
       ))}
     </div>
   );
