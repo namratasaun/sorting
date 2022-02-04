@@ -1,3 +1,4 @@
+import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Fragment } from 'react/cjs/react.production.min';
 import Stopwatch from './pages/Stopwatch';
