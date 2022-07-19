@@ -1,15 +1,35 @@
 .outer {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  border: 2px solid red;
+  box-sizing: border-box;
 }
 
-.block {
-  height: 30px;
-  width: 30px;
-  border: 1px solid black;
+.allPlayers {
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  margin: 10% auto;
 }
 
 .player {
-  height: 8px;
-  width: 8px;
+  height: 12px;
+  width: 12px;
+  transition: transform 2s;
+}
+
+.unitRow {
+  width: 100%;
+  display: flex;
+}
+
+.unitRow:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.unitBlock {
+  width: calc(100% / 10);
+  height: calc(100vh / 10);
+  border: 1px solid black;
+  box-sizing: border-box;
 }

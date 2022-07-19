@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { getRandomIntInclusive } from '../utils/random';
 import css from './dieRoll.module.css';
-import withCheck from '../concepts/withCheck';
 
 const die = {
   0: <div>Roll me</div>,
@@ -66,8 +65,8 @@ const die = {
   ),
 };
 
-const DieRoll = ({ onDieRoll, valie }) => {
-  const [val, setVal] = useState(1);
+const DieRoll = ({ onDieRoll, blockDice }) => {
+  const [val, setVal] = useState(4);
 
   const changeDieVal = () => {
     let newVal = getRandomIntInclusive(1, 6);
@@ -77,12 +76,15 @@ const DieRoll = ({ onDieRoll, valie }) => {
 
   return (
     <div>
-      {console.log(valie)}
-      <div onClick={changeDieVal} className={css.die}>
-        {die[val]}
-      </div>
+      {blockDice ? (
+        <div>Wait..</div>
+      ) : (
+        <div onClick={changeDieVal} className={css.die}>
+          {die[val]}
+        </div>
+      )}
     </div>
   );
 };
 
-export default withCheck(DieRoll);
+export default DieRoll;
