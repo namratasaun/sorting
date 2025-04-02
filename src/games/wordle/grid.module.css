@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+}
+
+.gridBox {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid pink;
+  margin: 4px;
+}

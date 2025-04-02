@@ -8,6 +8,7 @@ import ProgressBar from './pages/ProgressBar';
 import KeyIndex from './pages/keyIndex';
 import Todos from './pages/todos';
 import RecursiveMenu from './pages/recursive';
+import Wordle from './games/wordle';
 
 const data = [
   {
@@ -52,6 +53,7 @@ function App() {
       <Link to='/keyIndex'>KeyIndex</Link>
       <Link to='/todos'>Todos</Link>
       <Link to='/rec'>Rec</Link>
+      <Link to='/wordle'>Wordle</Link>
       <Routes>
         <Route path='/stopwatch' element={<Stopwatch />} />
         <Route path='/sorting' element={<Sorting />} />
@@ -60,6 +62,7 @@ function App() {
         <Route path='/keyIndex' element={<KeyIndex />} />
         <Route path='/todos' element={<Todos />} />
         <Route path='/rec' element={<RecursiveMenu data={data} />} />
+        <Route path='/wordle' element={<Wordle />} />
       </Routes>
     </Fragment>
   );
