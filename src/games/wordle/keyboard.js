@@ -6,7 +6,7 @@ const Keyboard = ({ keyPressHandler }) => {
   return (
     <div>
       <div>
-        <button onClick={keyHandler}>Enter0</button>
+        <button onClick={keyHandler}>Enter</button>
         <button onClick={keyHandler}>Backspace</button>
         <button onClick={keyHandler}>q</button>
         <button onClick={keyHandler}>w</button>

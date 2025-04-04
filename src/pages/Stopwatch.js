@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import css from './stopwatch.module.css';
-import { zeroPad } from '../utils/date';
+import { useEffect, useRef, useState } from "react";
+import css from "./stopwatch.module.css";
+import { zeroPad } from "../utils/date";
 
 const Stopwatch = () => {
   const [nanoSeconds, setNanoSeconds] = useState(0);
