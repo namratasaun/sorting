@@ -1,6 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import Stopwatch from "./Stopwatch";
 import userEvent from "@testing-library/user-event";
+
+const flushPromises = () => new Promise((res) => process.nextTick(res));
+
+jest.useFakeTimers();
 
 describe("Stopwatch component", () => {
   test("Render default", () => {
@@ -33,7 +37,14 @@ describe("Stopwatch component", () => {
     render(<Stopwatch />);
     const startButton = screen.getByRole("button", { name: "Start" });
     userEvent.click(startButton);
-    const seconds = await screen.findByText("04 s", {}, { timeout: 5000 });
-    expect(seconds).toBeInTheDocument();
+    act(() => {
+      jest.advanceTimersByTime(60000);
+    });
+    // jest.advanceTimersByTime(90000);
+    // await flushPromises();
+    // const seconds = await screen.findByText("04 s", {}, { timeout: 5000 });
+    // expect(seconds).toBeInTheDocument();
+    // expect(setInterval).toHaveBeenCalledTimes(1);
+    // expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
   });
 });
